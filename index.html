@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <title>Fernández & Granados SA</title>
+    
+    <style>
+        /* Variables CSS Modificadas */
+        :root {
+            --primary-color: #00897d; /* Color de Boton.png */
+            --secondary-color: #BDC3C7; /* Mantenido como un gris claro para posibles usos futuros */
+            --text-color: #2C3E50; /* Un gris oscuro para texto, buen contraste */
+            --light-text: #FAFAFA; /* Para texto sobre fondos oscuros (botones) */
+            --background-color: #a5d0d6; /* Color de Fondo.png */
+            --transition: all 0.3s ease;
+        }
+        
+        /* Reset y estilos base */
+        *,::before,::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-color); 
+            color: var(--text-color); 
+            min-height: 100vh;
+            line-height: 1.7; 
+        }
+        
+        h1, h2, p {
+            margin: 0;
+        }
+        
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Header */
+        .l-header {
+            width: 100%;
+            padding: 1rem 2rem; /* Ajustado el padding */
+            background-color: transparent; /* Header transparente sobre el fondo del body */
+            position: fixed; 
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sombra opcional si se quiere destacar */
+        }
+        
+        /* Navegación */
+        .nav {
+            display: flex;
+            justify-content: space-between; /* Espacio entre logo/menú y redes sociales */
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav__left { /* Contenedor para logo y menú */
+            display: flex;
+            align-items: center;
+            gap: 1.5rem; /* Espacio entre logo y primer item del menú */
+        }
+        
+        .nav__logo {
+            color: var(--text-color); 
+            font-size: 1.5rem;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+        
+        .nav__logo:hover {
+            opacity: 0.8;
+        }
+        
+        .nav__menu { /* Ya no es un menú colapsable, es una lista horizontal */
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav__list {
+            display: flex;
+            list-style: none;
+            align-items: center; /* Alinear verticalmente los items */
+        }
+        
+        .nav__item {
+            margin-left: 1.5rem; /* Espacio entre items del menú */
+        }
+        
+        .nav__link {
+            color: var(--text-color); 
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+            padding: 0.5rem 0; /* Padding para hacer el área clickeable más grande */
+        }
+        
+        .nav__link:hover {
+            color: var(--primary-color); 
+            opacity: 1;
+        }
+        
+        /* Estilo para el enlace "Contacto" que antes era "Acceder" */
+        .nav__link--button-style {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+         .nav__link--button-style:hover {
+            background-color: var(--text-color); /* Oscurecer al pasar el ratón */
+            color: var(--light-text); 
+        }
+
+        /* Ocultar el toggle del menú móvil ya que no se usa */
+        .nav__toggle, .nav__close {
+            display: none;
+        }
+
+        /* Social links en el header */
+        .header__social-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem; /* Espacio entre iconos sociales */
+        }
+        .header__social-links a {
+            color: var(--text-color);
+            font-size: 1.3rem; /* Tamaño de iconos sociales en header */
+            transition: var(--transition);
+        }
+        .header__social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Sección Home */
+        .home {
+            padding: 8rem 2rem 4rem; /* Padding superior para no quedar debajo del header fijo */
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; 
+        }
+        
+        .home__container {
+            display: flex;
+            flex-direction: column; /* Por defecto para móviles: texto arriba, imagen abajo */
+            align-items: center;
+            justify-content: center;
+            max-width: 1000px; 
+            margin: 0 auto;
+            text-align: center;
+            gap: 2rem; 
+        }
+        
+        /* Contenido textual (ahora a la izquierda en desktop) */
+        .home__data {
+            width: 100%;
+            max-width: 550px; 
+            animation: fadeIn 1s ease-out;
+            text-align: center; /* Centrado por defecto */
+            order: 2; /* Por defecto el texto va después */
+        }
+        
+        /* Contenedor de la imagen (ahora a la derecha en desktop) */
+        .home__img {
+            width: 100%;
+            max-width: 450px; 
+            order: 1; /* Por defecto la imagen va antes */
+        }
+        
+        .home__img img {
+            width: auto; 
+            height: auto;
+            max-width: 100%;
+            display: block;
+            margin: 0 auto; 
+        }
+        
+        .home__title {
+            font-size: 2.8rem; 
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--text-color);
+        }
+        
+        .home__description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            color: #333; /* Un gris un poco más oscuro para mejor lectura sobre fondo claro */
+        }
+        
+        /* Botones - ahora solo hay un botón "Contacto" en el nav */
+         .home__buttons {
+            /* Este contenedor puede eliminarse si ya no hay botones aquí, */
+            /* o mantenerse si se planea añadir otros en el futuro. */
+            /* Por ahora, no tendrá contenido visible. */
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Iconos sociales ya no están en esta sección */
+        .social-links { 
+            display: none; /* Ocultar los social links originales de la sección home */
+        }
+        
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px); 
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        /* Media Queries */
+        @media screen and (min-width: 769px) { 
+            .home__container {
+                flex-direction: row; /* Contenido lado a lado */
+                text-align: left; 
+                gap: 3rem; 
+            }
+            .home__data {
+                text-align: left;
+                order: 1; /* Texto a la izquierda */
+                max-width: 48%; /* Ajustar ancho */
+            }
+            .home__img {
+                order: 2; /* Imagen a la derecha */
+                max-width: 48%; /* Ajustar ancho */
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav {
+                flex-wrap: wrap; /* Permitir que los elementos pasen a la siguiente línea si no caben */
+                justify-content: center; /* Centrar en móvil si se envuelve */
+            }
+            .nav__left {
+                flex-direction: column; /* Logo y menú uno encima del otro */
+                align-items: center;
+                width: 100%; /* Ocupar todo el ancho */
+                margin-bottom: 0.5rem; /* Espacio si se envuelven */
+                gap: 0.5rem;
+            }
+            .nav__list {
+                justify-content: center; /* Centrar items de menú */
+                flex-wrap: wrap;
+            }
+            .nav__item {
+                margin-left: 0.75rem; /* Menos margen en móvil */
+                margin-right: 0.75rem;
+            }
+             .header__social-links {
+                width: 100%;
+                justify-content: center; /* Centrar redes sociales */
+                margin-top: 0.5rem; /* Espacio si se envuelven */
+            }
+
+            .home__title {
+                font-size: 2.3rem; 
+            }
+            
+            .home__img {
+                margin-top: 1rem; /* Espacio adicional */
+                order: 1; /* Imagen arriba en móvil */
+            }
+            .home__data {
+                order: 2; /* Texto abajo en móvil */
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="l-header">
+        <nav class="nav">
+            <div class="nav__left">
+                <a href="#" class="nav__logo">F&G</a>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="https://servicios.fernandezygranados.com/acerca" class="nav__link">Acerca de nosotros</a></li>
+                        <li class="nav__item"><a href="https://servicios.fernandezygranados.com/contacto" class="nav__link nav__link--button-style">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="header__social-links">
+                <a href="https://www.facebook.com/Fernández-Granados-S-A-104377944735477/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/fernandezygranados/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=50672067720" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+
+            </nav>
+    </header>
+    
+    <main class="l-main">
+        <section class="home" id="home">
+            <div class="home__container">
+                <div class="home__data">
+                    <h1 class="home__title">Fernández & Granados</h1>
+                    <p class="home__description">Variedad de opciones, métodos innovadores, con personal altamente calificado para brindar el mejor servicio.</p>
+                    
+                    <div class="home__buttons">
+                        </div>
+                    
+                    </div>
+                
+                <div class="home__img">
+                    <img src="assets/img/img1.png" alt="Fernández & Granados Ilustración" class="floating">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // El JavaScript para el menú móvil ya no es necesario con el nuevo layout del header,
+        // a menos que se decida reintroducir un menú colapsable para pantallas muy pequeñas.
+        // Por ahora, se puede comentar o eliminar.
+
+        /*
+        const navMenu = document.getElementById('nav-menu'); // ID original era nav-menu
+        const navToggle = document.getElementById('nav-toggle');
+        const navClose = document.getElementById('nav-close');
+        
+        // Show menu
+        if(navToggle) {
+            navToggle.addEventListener('click', () => {
+                if(navMenu) navMenu.classList.add('show-menu');
+            });
+        }
+        
+        // Hide menu
+        if(navClose) {
+            navClose.addEventListener('click', () => {
+                if(navMenu) navMenu.classList.remove('show-menu');
+            });
+        }
+        
+        // Remove menu on link click (si el menú es visible y se clickea un enlace)
+        const navLinks = document.querySelectorAll('.nav__link');
+        function closeMenu() {
+            if(navMenu && navMenu.classList.contains('show-menu')) { // Solo cerrar si el menú es tipo colapsable y está visible
+                 navMenu.classList.remove('show-menu');
+            }
+        }
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+        */
+    </script>
+</body>
+</html>
