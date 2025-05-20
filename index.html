@@ -453,32 +453,87 @@
             }
         }
 
-        @media screen and (max-width: 768px) {
-            .nav {
-                flex-wrap: wrap; /* Permitir que los elementos pasen a la siguiente línea si no caben */
-                justify-content: center; /* Centrar en móvil si se envuelve */
-            }
-            .nav__left {
-                flex-direction: column; /* Logo y menú uno encima del otro */
-                align-items: center;
-                width: 100%; /* Ocupar todo el ancho */
-                margin-bottom: 0.5rem; /* Espacio si se envuelven */
-                gap: 0.5rem;
-            }
-            .nav__list {
-                justify-content: center; /* Centrar items de menú */
-                flex-wrap: wrap;
-            }
-            .nav__item {
-                margin-left: 0.75rem; /* Menos margen en móvil */
-                margin-right: 0.75rem;
-            }
-             .header__social-links {
-                width: 100%;
-                justify-content: center; /* Centrar redes sociales */
-                margin-top: 0.5rem; /* Espacio si se envuelven */
-            }
+/* Ajustes para el header y navegación en móvil */
+@media screen and (max-width: 768px) {
+    /* Aumentar padding del header para dar más espacio */
+    .l-header {
+        padding: 0.8rem 1rem;
+    }
+    
+    /* Mejorar la disposición de los elementos de navegación */
+    .nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    /* Ajustar el contenedor izquierdo */
+    .nav__left {
+        width: 100%;
+        flex-direction: row;  /* Mantener logo y menú en horizontal */
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Ajustar la lista de navegación */
+    .nav__list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Ajustar los items del menú */
+    .nav__item {
+        margin: 0 0.5rem;
+    }
+    
+    /* Reducir el tamaño del botón de contacto */
+    .nav__link--button-style {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Ajustes para la sección home y espacio para el logo */
+    .home {
+        padding-top: 9rem; /* Aumentar el padding superior para evitar que el contenido quede bajo el menú */
+    }
+    
+    /* Ajustar el tamaño del logo para móviles */
+    .home__img img {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+    
+    /* Ajustes adicionales para evitar que elementos se superpongan */
+    .header__social-links {
+        margin-top: 0.5rem;
+    }
+}
 
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media screen and (max-width: 480px) {
+    .l-header {
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .nav__logo {
+        font-size: 1.3rem;
+    }
+    
+    .nav__link {
+        font-size: 0.9rem;
+    }
+    
+    .nav__link--button-style {
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .home {
+        padding-top: 10rem; /* Más espacio para menús complejos */
+    }
+}
             .home__title {
                 font-size: 2.3rem; 
             }
