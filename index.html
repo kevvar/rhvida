@@ -213,29 +213,20 @@
             color: var(--text-color);
         }
         
-.home__tagline {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--primary-color); /* o el color principal de tu marca */
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-}
+        .home__tagline {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color); /* o el color principal de tu marca */
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
 
-.home__description {
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-bottom: 1.5rem;
-}
-        
-        /* Botones - ahora solo hay un botón "Contacto" en el nav */
-         .home__buttons {
-            /* Este contenedor puede eliminarse si ya no hay botones aquí, */
-            /* o mantenerse si se planea añadir otros en el futuro. */
-            /* Por ahora, no tendrá contenido visible. */
+        .home__description {
+            font-size: 1rem;
+            opacity: 0.8;
             margin-bottom: 1.5rem;
         }
         
-        /* Iconos sociales ya no están en esta sección */
         .social-links { 
             display: none; /* Ocultar los social links originales de la sección home */
         }
@@ -327,7 +318,7 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         
-        /* Nueva sección de Filosofía - con grid modificado */
+        /* Sección de Filosofía */
         .philosophy {
             background-color: var(--light-background);
             padding: 5rem 2rem;
@@ -361,12 +352,11 @@
             margin: 0 auto;
         }
         
-        /* Nueva configuración de grid para la distribución de tarjetas */
         .philosophy__content {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas en escritorio */
             grid-auto-rows: auto; /* Altura automática */
-            gap: 2rem;
+            gap: 2rem; /* Espacio entre tarjetas */
         }
         
         .philosophy__item {
@@ -376,18 +366,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             animation: fadeIn 1s ease-out;
-        }
-        
-        /* Las tarjetas de Misión y Visión en la primera fila */
-        .philosophy__item:nth-child(1),
-        .philosophy__item:nth-child(2) {
-            grid-row: 1;
-        }
-        
-        /* Las tarjetas de Valores y Política de calidad en la segunda fila */
-        .philosophy__item:nth-child(3),
-        .philosophy__item:nth-child(4) {
-            grid-row: 2;
         }
         
         .philosophy__item:hover {
@@ -413,24 +391,23 @@
             line-height: 1.6;
         }
         
-        /* Lista de valores y política de calidad con menos altura */
         .philosophy__list {
             margin-top: 1rem;
             padding-left: 0.5rem;
         }
         
         .philosophy__list-item {
-            margin-bottom: 0.3rem; /* Reducido de 0.5rem */
+            margin-bottom: 0.3rem; 
             position: relative;
             padding-left: 1.5rem;
-            line-height: 1.4; /* Reducido de 1.6 o el valor por defecto */
+            line-height: 1.4; 
         }
         
         .philosophy__list-item::before {
             content: "";
             position: absolute;
             left: 0;
-            top: 0.65rem; /* Ajustado para la nueva línea más compacta */
+            top: 0.65rem; 
             width: 8px;
             height: 8px;
             border-radius: 50%;
@@ -442,6 +419,111 @@
             color: var(--primary-color);
         }
         
+        /* Estilos para la sección de Servicios */
+        .services {
+            background-color: var(--background-color);
+            padding: 5rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .services__container {
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .services__header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .services__title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .services__subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services__content {
+            display: grid;
+            /* Por defecto, flexible para adaptarse a 2 o 3 columnas */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem;
+        }
+
+        .service__card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            animation: fadeIn 1s ease-out;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .service__card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service__icon {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service__icon i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .service__title { /* Nombre de clase para el título de cada tarjeta de servicio */
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .service__details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            flex-grow: 1;
+        }
+
+        .service__detail h4 {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service__detail h4 i {
+            color: var(--primary-color);
+            font-size: 1rem;
+        }
+
+        .service__detail p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
         /* Media Queries */
         @media screen and (min-width: 769px) { 
             .home__container {
@@ -460,241 +542,113 @@
             }
         }
 
-/* Ajustes para el header y navegación en móvil */
-@media screen and (max-width: 768px) {
-    /* Aumentar padding del header para dar más espacio */
-    .l-header {
-        padding: 0.8rem 1rem;
-    }
-    
-    /* Mejorar la disposición de los elementos de navegación */
-    .nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    
-    /* Ajustar el contenedor izquierdo */
-    .nav__left {
-        width: 100%;
-        flex-direction: row;  /* Mantener logo y menú en horizontal */
-        justify-content: center;
-        margin-bottom: 0.5rem;
-    }
-    
-    /* Ajustar la lista de navegación */
-    .nav__list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-top: 0.5rem;
-    }
-    
-    /* Ajustar los items del menú */
-    .nav__item {
-        margin: 0 0.5rem;
-    }
-    
-    /* Reducir el tamaño del botón de contacto */
-    .nav__link--button-style {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
-    }
-    
-    /* Ajustes para la sección home y espacio para el logo */
-    .home {
-        padding-top: 9rem; /* Aumentar el padding superior para evitar que el contenido quede bajo el menú */
-    }
-    
-    /* Ajustar el tamaño del logo para móviles */
-    .home__img img {
-        max-width: 80%;
-        margin: 0 auto;
-    }
-    
-    /* Ajustes adicionales para evitar que elementos se superpongan */
-    .header__social-links {
-        margin-top: 0.5rem;
-    }
-}
+        /* Media query para forzar 3 columnas en servicios en pantallas de escritorio más grandes */
+        @media screen and (min-width: 1024px) {
+            .services__content {
+                grid-template-columns: repeat(3, 1fr); /* Fuerza 3 columnas en pantallas grandes */
+            }
+        }
 
-/* Ajustes adicionales para pantallas muy pequeñas */
-@media screen and (max-width: 480px) {
-    .l-header {
-        padding: 0.6rem 0.8rem;
-    }
-    
-    .nav__logo {
-        font-size: 1.3rem;
-    }
-    
-    .nav__link {
-        font-size: 0.9rem;
-    }
-    
-    .nav__link--button-style {
-        padding: 0.4rem 0.8rem;
-    }
-    
-    .home {
-        padding-top: 10rem; /* Más espacio para menús complejos */
-    }
-}
-            .home__title {
-                font-size: 2.3rem; 
+        /* Ajustes para el header y navegación en móvil y tablet */
+        @media screen and (max-width: 768px) {
+            .l-header {
+                padding: 0.8rem 1rem;
             }
-            
-            .home__img {
-                margin-top: 1rem; /* Espacio adicional */
-                order: 1; /* Imagen arriba en móvil */
+            .nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
             }
-            .home__data {
-                order: 2; /* Texto abajo en móvil */
+            .nav__left {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+                margin-bottom: 0.5rem;
             }
-            
+            .nav__list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+            }
+            .nav__item {
+                margin: 0 0.5rem;
+            }
+            .nav__link--button-style {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            .home {
+                padding-top: 9rem; 
+            }
+            .home__img img {
+                max-width: 80%;
+                margin: 0 auto;
+            }
+            .header__social-links {
+                margin-top: 0.5rem;
+            }
+
+            /* Ajustes para sección Filosofía en móvil (1 COLUMNA) */
+            .philosophy__content {
+                grid-template-columns: 1fr; /* 1 columna en móvil */
+                gap: 1.5rem; /* Ajustar el gap para una sola columna */
+            }
             .philosophy__item {
+                padding: 1.5rem; /* Ajustar padding si es necesario */
+            }
+
+            /* Media Queries para Servicios en móvil (1 COLUMNA) */
+            .services__content {
+                grid-template-columns: 1fr; /* Los servicios se apilan en móvil */
+            }
+            
+            .service__card {
                 padding: 1.5rem;
             }
             
-            /* Ajuste para vista móvil */
-            .philosophy__content {
-                grid-template-columns: 1fr; /* Una sola columna en móvil */
+            .service__title { /* Ajuste para título de tarjeta de servicio en móvil */
+                font-size: 1.3rem;
             }
             
-            /* Restaurar orden para móviles */
-            .philosophy__item:nth-child(1) { grid-row: 1; }
-            .philosophy__item:nth-child(2) { grid-row: 2; }
-            .philosophy__item:nth-child(3) { grid-row: 3; }
-            .philosophy__item:nth-child(4) { grid-row: 4; }
+            .service__detail h4 {
+                font-size: 1rem;
+            }
+            
+            .service__detail p {
+                font-size: 0.9rem;
+            }
         }
-/* Estilos para la sección de Servicios */
-.services {
-    background-color: var(--background-color);
-    padding: 5rem 2rem;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
 
-.services__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 20px;
-}
-
-.services__header {
-    text-align: center;
-    margin-bottom: 3rem;
-    animation: fadeIn 1s ease-out;
-}
-
-.services__title {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-.services__subtitle {
-    font-size: 1.2rem;
-    color: var(--text-color);
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.services__content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.service__card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
-    animation: fadeIn 1s ease-out;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.service__card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.service__icon {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.service__icon i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-}
-
-.service__title {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-weight: 600;
-}
-
-.service__details {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    flex-grow: 1;
-}
-
-.service__detail h4 {
-    font-size: 1.1rem;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.service__detail h4 i {
-    color: var(--primary-color);
-    font-size: 1rem;
-}
-
-.service__detail p {
-    color: #555;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Media Queries para Servicios */
-@media screen and (max-width: 768px) {
-    .services__content {
-        grid-template-columns: 1fr;
-    }
-    
-    .service__card {
-        padding: 1.5rem;
-    }
-    
-    .service__title {
-        font-size: 1.3rem;
-    }
-    
-    .service__detail h4 {
-        font-size: 1rem;
-    }
-    
-    .service__detail p {
-        font-size: 0.9rem;
-    }
-}
-        
+        /* Ajustes adicionales para pantallas muy pequeñas */
+        @media screen and (max-width: 480px) {
+            .l-header {
+                padding: 0.6rem 0.8rem;
+            }
+            .nav__logo {
+                font-size: 1.3rem;
+            }
+            .nav__link {
+                font-size: 0.9rem;
+            }
+            .nav__link--button-style {
+                padding: 0.4rem 0.8rem;
+            }
+            .home {
+                padding-top: 10rem; 
+            }
+            .home__title {
+                font-size: 2.3rem; 
+            }
+            .home__img {
+                margin-top: 1rem; 
+                order: 1; 
+            }
+            .home__data {
+                order: 2; 
+            }
+        }
     </style>
 </head>
 <body>
@@ -704,19 +658,18 @@
                 <a href="#" class="nav__logo">RHV</a>
                 <div class="nav__menu" id="nav-menu">
                     <ul class="nav__list">
-	    <li class="nav__item"><a href="#services" class="nav__link">Servicios</a></li>
-    	    <li class="nav__item"><a href="#philosophy" class="nav__link">Acerca de nosotros</a></li>
-    	    <li class="nav__item"><a href="https://00k98x29.forms.app/rhvidacontacto" class="nav__link nav__link--button-style">Contacto</a></li>
+	                    <li class="nav__item"><a href="#services" class="nav__link">Servicios</a></li>
+    	                <li class="nav__item"><a href="#philosophy" class="nav__link">Acerca de nosotros</a></li>
+    	                <li class="nav__item"><a href="https://00k98x29.forms.app/rhvidacontacto" class="nav__link nav__link--button-style">Contacto</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="header__social-links">
-    <a href="https://www.linkedin.com/company/rh-vida/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-    <a href="https://api.whatsapp.com/send?phone=50672067720" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/company/rh-vida/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=50672067720" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
             </div>
-
-            </nav>
+        </nav>
     </header>
     
     <main class="l-main">
@@ -724,11 +677,8 @@
             <div class="home__container">
                 <div class="home__data">
                     <h1 class="home__title">RH Vida</h1>
-		    <p class="home__tagline">Transformamos la gestión de RRHH en soluciones inteligentes para su crecimiento</p>
+		            <p class="home__tagline">Transformamos la gestión de RRHH en soluciones inteligentes para su crecimiento</p>
                     <p class="home__description">Variedad de opciones, métodos innovadores, con personal altamente calificado para brindar el mejor servicio.</p>
-                    
-                    <div class="home__buttons">
-                        </div>
                     
                     </div>
                 
@@ -737,7 +687,6 @@
                 </div>
             </div>
             
-            <!-- Nuevo botón de scroll -->
             <div class="scroll-btn-container">
                 <a href="#services" class="scroll-btn">
                     <span class="scroll-text">Descubre más de nosotros</span>
@@ -747,15 +696,15 @@
                 </a>
             </div>
         </section>
+
         <section class="services" id="services">
-    <div class="services__container">
+            <div class="services__container">
         <div class="services__header">
             <h2 class="services__title">Nuestros Servicios</h2>
             <p class="services__subtitle">Soluciones integrales de recursos humanos adaptadas a las necesidades de su empresa</p>
         </div>
         
         <div class="services__content">
-            <!-- Servicio 1 -->
             <div class="service__card">
                 <div class="service__icon">
                     <i class="fas fa-user-tie"></i>
@@ -777,7 +726,6 @@
                 </div>
             </div>
 
-            <!-- Servicio 2 -->
             <div class="service__card">
                 <div class="service__icon">
                     <i class="fas fa-hand-holding-usd"></i>
@@ -795,7 +743,6 @@
                 </div>
             </div>
 
-            <!-- Servicio 3 -->
             <div class="service__card">
                 <div class="service__icon">
                     <i class="fas fa-calculator"></i>
@@ -817,7 +764,6 @@
                 </div>
             </div>
 
-            <!-- Servicio 4 -->
             <div class="service__card">
                 <div class="service__icon">
                     <i class="fas fa-laptop-code"></i>
@@ -839,7 +785,6 @@
                 </div>
             </div>
 
-            <!-- Servicio 5 -->
             <div class="service__card">
                 <div class="service__icon">
                     <i class="fas fa-chart-pie"></i>
@@ -861,7 +806,6 @@
                 </div>
             </div>
 
-            <!-- Servicio 6 -->
             <div class="service__card">
                 <div class="service__icon">
                     <i class="fas fa-tasks"></i>
@@ -880,8 +824,8 @@
             </div>
         </div>
     </div>
-</section>
-        <!-- Nueva sección de Filosofía -->
+        </section>
+        
         <section class="philosophy" id="philosophy">
             <div class="philosophy__container">
                 <div class="philosophy__header">
@@ -947,23 +891,15 @@
     </main>
     
     <script>
-        // Script para manejar la navegación de scroll suave para todos los enlaces internos
         document.addEventListener('DOMContentLoaded', function() {
-            // Seleccionar todos los enlaces internos (los que comienzan con #)
             const internalLinks = document.querySelectorAll('a[href^="#"]');
-            
             internalLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
-                    
-                    // Verificar si el destino existe
-                    if(targetId === '#') return; // Si es solo "#", no hacer nada
-                    
+                    if(targetId === '#') return; 
                     const targetElement = document.querySelector(targetId);
-                    if(!targetElement) return; // Si no existe el elemento, no hacer nada
-                    
-                    // Realizar el scroll suave
+                    if(!targetElement) return; 
                     window.scrollTo({
                         top: targetElement.offsetTop,
                         behavior: 'smooth'
